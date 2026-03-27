@@ -1,0 +1,59 @@
+[tool.poetry]
+name = "gpt-sovits"
+version = "0.1.0"
+description = "Local Poetry environment for GPT-SoVITS"
+authors = ["jerry"]
+package-mode = false
+
+[tool.poetry.dependencies]
+python = ">=3.11,<3.12"
+torch = "2.7.0"
+numpy = "<2.0"
+scipy = "*"
+tensorboard = "*"
+librosa = "0.10.2"
+numba = "*"
+pytorch-lightning = ">=2.4"
+gradio = "<5"
+ffmpeg-python = "*"
+onnxruntime = { version = "*", markers = "platform_machine == 'aarch64' or platform_machine == 'arm64'" }
+onnxruntime-gpu = { version = "*", markers = "platform_machine == 'x86_64' or platform_machine == 'AMD64'" }
+tqdm = "*"
+funasr = "1.0.27"
+cn2an = "*"
+pypinyin = "*"
+pyopenjtalk = ">=0.4.1"
+g2p-en = "*"
+torchaudio = "2.7.0"
+modelscope = "*"
+sentencepiece = "*"
+transformers = ">=4.43,<=4.50"
+huggingface-hub = "<1.0"
+peft = "<0.18.0"
+chardet = "<6"
+pyyaml = "*"
+psutil = "*"
+jieba-fast = "*"
+jieba = "*"
+split-lang = "*"
+fast-langdetect = ">=0.3.1"
+wordsegment = "*"
+rotary-embedding-torch = "*"
+ToJyutping = "*"
+g2pk2 = "*"
+ko_pron = "*"
+opencc = "*"
+python_mecab_ko = { version = "*", markers = "sys_platform != 'win32'" }
+fastapi = { version = ">=0.115.2", extras = ["standard"] }
+x-transformers = "*"
+torchmetrics = "<=1.5"
+pydantic = "<=2.10.6"
+ctranslate2 = ">=4.0,<5"
+av = ">=11"
+faster-whisper = "*"
+markupsafe = "~=2.1.5"
+setuptools = "<81"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
