@@ -1,10 +1,14 @@
 import argparse
 import os
 import re
+import sys
 import warnings
 
 import soundfile as sf
 import yaml
+
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, PROJECT_ROOT)
 
 os.environ.setdefault("MPLCONFIGDIR", "/tmp/matplotlib-gpt-sovits")
 warnings.filterwarnings("ignore", message="pkg_resources is deprecated as an API")
@@ -12,7 +16,6 @@ warnings.filterwarnings("ignore", message="pkg_resources is deprecated as an API
 from GPT_SoVITS.TTS_infer_pack.TTS import TTS
 
 
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 INPUT_DIR = os.path.join(PROJECT_ROOT, "input")
 REF_AUDIO_PATH = os.path.join(INPUT_DIR, "ref.mp3")
 REF_TEXT_PATH = os.path.join(INPUT_DIR, "ref_text.txt")

@@ -3,11 +3,15 @@ import base64
 import io
 import os
 import re
+import sys
 import uuid
 import wave
 import yaml
 from contextlib import asynccontextmanager
 from pathlib import Path
+
+PROJECT_ROOT = Path(__file__).parent.resolve()
+sys.path.insert(0, str(PROJECT_ROOT))
 
 import numpy as np
 import soundfile as sf
@@ -18,7 +22,6 @@ from pydantic import BaseModel
 from GPT_SoVITS.TTS_infer_pack.TTS import TTS
 
 
-PROJECT_ROOT = Path(__file__).parent.resolve()
 INPUT_DIR = PROJECT_ROOT / "input"
 REF_AUDIO_PATH = INPUT_DIR / "ref.mp3"
 REF_TEXT_PATH = INPUT_DIR / "ref_text.txt"
