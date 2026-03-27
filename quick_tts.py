@@ -8,7 +8,20 @@ import soundfile as sf
 import yaml
 
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, PROJECT_ROOT)
+
+
+def bootstrap_project_paths() -> None:
+    # GPT-SoVITS sources use top-level imports like `AR`, `module`, `tools`.
+    for path in (
+        PROJECT_ROOT,
+        os.path.join(PROJECT_ROOT, "GPT_SoVITS"),
+        os.path.join(PROJECT_ROOT, "tools"),
+    ):
+        if path not in sys.path:
+            sys.path.insert(0, path)
+
+
+bootstrap_project_paths()
 
 os.environ.setdefault("MPLCONFIGDIR", "/tmp/matplotlib-gpt-sovits")
 warnings.filterwarnings("ignore", message="pkg_resources is deprecated as an API")

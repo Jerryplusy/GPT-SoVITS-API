@@ -11,7 +11,21 @@ from contextlib import asynccontextmanager
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).parent.resolve()
-sys.path.insert(0, str(PROJECT_ROOT))
+
+
+def bootstrap_project_paths() -> None:
+    # GPT-SoVITS sources use top-level imports like `AR`, `module`, `tools`.
+    for path in (
+        PROJECT_ROOT,
+        PROJECT_ROOT / "GPT_SoVITS",
+        PROJECT_ROOT / "tools",
+    ):
+        path_str = str(path)
+        if path_str not in sys.path:
+            sys.path.insert(0, path_str)
+
+
+bootstrap_project_paths()
 
 import numpy as np
 import soundfile as sf
